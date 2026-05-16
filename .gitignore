@@ -1,0 +1,65 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+*.json
+!data-pipelines/elasticsearch-connectors/specs/**/*.json
+
+# Helm
+**/*.tgz
+**/Chart.lock
+
+# Virtual environments
+.venv
+
+# Ruff
+.ruff_cache/
+
+# Large files
+data/
+
+#Logs
+logs/
+
+# Environment files
+.env_files
+**/prod.env
+**/nonprod.env
+**/local.env
+envs/gemini.env
+
+# Credentials
+creds/
+
+# Terraform
+.terraform/
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform*
+
+# LibreChat Docker deployment
+*/docker/data-node/
+*/docker/images
+*/docker/logs
+**/meili*
+*/docker/uploads
+
+
+**/node_modules
+
+# IDE
+.vscode/*
+.idea/*
+/scratch/
+/functions/sandbox/
+/.run/
+/.env

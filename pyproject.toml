@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tartarus"
+version = "0.1"
+requires-python = ">=3.12"
+authors = [
+    { name = "Andrew Festa" },
+]
+maintainers = [
+    { name = "Andrew Festa" },
+]
+description = "A place and tool to cache and store model computations for sharing across runtimes and agents."
+readme = "README.md"
+keywords = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "uv",
+    "pandas",
+    "PyYAML",
+    "frontmatter",
+    "jsonlines",
+    "Pillow",
+    "pydantic",
+    "openai",
+    "sqlalchemy",
+    "psycopg2-binary",
+    "requests"
+]
+
+[project.urls]
+Homepage = "https://github.com/andrewtfesta/tartarus"
+Documentation = "https://github.com/andrewtfesta/tartarus/README.md"
+Repository = "https://github.com/andrewtfesta/tartarus"
