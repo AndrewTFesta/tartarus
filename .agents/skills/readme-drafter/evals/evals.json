@@ -1,0 +1,110 @@
+{
+  "skill_name": "readme-drafter",
+  "queries": [
+    {
+      "id": 1,
+      "query": "Can you write me a README for my project? It's a small Python CLI that converts CSVs into markdown tables.",
+      "should_trigger": true,
+      "category": "clear-positive",
+      "notes": "Explicit 'write a README' request with project description. The canonical trigger case."
+    },
+    {
+      "id": 2,
+      "query": "I need to draft a README.md for the repo I just made. Here's the project description: [paragraph about a knowledge graph tool]",
+      "should_trigger": true,
+      "category": "clear-positive",
+      "notes": "Explicit 'draft a README' plus description. Different phrasing from #1, same intent."
+    },
+    {
+      "id": 3,
+      "query": "Help me write up what this project does. It's an early-stage tool for syncing notes between Obsidian and an SQLite store.",
+      "should_trigger": true,
+      "category": "clear-positive",
+      "notes": "'Write up what this project does' is README-language without using the word README."
+    },
+    {
+      "id": 4,
+      "query": "I just pushed my code to GitHub and the repo looks naked. What should I put in the top-level docs?",
+      "should_trigger": true,
+      "category": "clear-positive",
+      "notes": "'Top-level docs for a repo' = README in context. The 'naked repo' phrasing is a strong signal of someone needing the first README."
+    },
+    {
+      "id": 5,
+      "query": "Create a README for this codebase.",
+      "should_trigger": true,
+      "category": "clear-positive",
+      "notes": "Bare minimum trigger phrasing. Should fire even with no project description (skill will elicit)."
+    },
+    {
+      "id": 6,
+      "query": "I built a tool and I want to share it. How should I document it for other developers?",
+      "should_trigger": true,
+      "category": "implicit-positive",
+      "notes": "User wants to document for developers = README. Phrasing doesn't say README explicitly but the intent is unmistakable."
+    },
+    {
+      "id": 7,
+      "query": "I'm open-sourcing my side project this week. Can you help me get the docs ready for the launch?",
+      "should_trigger": true,
+      "category": "implicit-positive",
+      "notes": "Open-sourcing context strongly implies README work as the primary doc need. Skill should fire and likely ask which docs."
+    },
+    {
+      "id": 8,
+      "query": "What's a good first thing to write when starting a new repo, before adding any code?",
+      "should_trigger": true,
+      "category": "implicit-positive",
+      "notes": "The 'good first thing' for a new repo is the README. Less direct than other positives; ambiguity is fine, skill should fire and offer to draft."
+    },
+    {
+      "id": 9,
+      "query": "Can you explain what a README typically contains? I want to understand the conventions before I write my own.",
+      "should_trigger": false,
+      "category": "adversarial-negative",
+      "notes": "This is an informational request, not a drafting request. The skill should NOT fire — the user wants to learn, not get a draft. Classic false-positive trap."
+    },
+    {
+      "id": 10,
+      "query": "There's a typo in my README on line 14. Can you fix it?",
+      "should_trigger": false,
+      "category": "adversarial-negative",
+      "notes": "Edit, not draft. Skill should NOT fire — this is a one-line fix, not a drafting task."
+    },
+    {
+      "id": 11,
+      "query": "Write me a short description of what Python is good for.",
+      "should_trigger": false,
+      "category": "adversarial-negative",
+      "notes": "Adjacent to project description but it's about a language, not a specific project. Skill should NOT fire."
+    },
+    {
+      "id": 12,
+      "query": "Can you draft a README for the conference room booking process at my office?",
+      "should_trigger": false,
+      "category": "adversarial-negative",
+      "notes": "Uses the word 'README' but not for a software project. Tests whether the description over-relies on the literal word."
+    },
+    {
+      "id": 13,
+      "query": "My README is too long and reads like a sales pitch. Can you tighten it up and make it more honest?",
+      "should_trigger": false,
+      "category": "adversarial-negative",
+      "notes": "Editing an existing README, not drafting from scratch. Could legitimately go either way — but the skill is for *initial* drafts, so it should NOT fire. If this is a case you'd want it to fire on, the skill description needs to expand to cover rewrites."
+    },
+    {
+      "id": 14,
+      "query": "I have a Python library and a CLI tool that both wrap the same core logic. I want to publish them as one package. How should I structure the top-level documentation so both audiences are served?",
+      "should_trigger": true,
+      "category": "edge-case",
+      "notes": "User is asking an architectural question about docs that strongly implies they want a README that handles both audiences. Genuinely ambiguous — skill could fire and offer to draft, or could just answer the architectural question. Worth knowing which way it goes."
+    },
+    {
+      "id": 15,
+      "query": "Here's the current README for my project. Can you make it better?",
+      "should_trigger": false,
+      "category": "edge-case",
+      "notes": "Existing README, asking for improvement. The skill targets *initial* drafts, so it should NOT fire — but a user might reasonably expect it to. If you want it to handle improvements too, you'd need to either expand this skill or create a sibling 'readme-reviser' skill."
+    }
+  ]
+}
