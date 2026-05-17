@@ -63,3 +63,4 @@ override.tf.json
 /functions/sandbox/
 /.run/
 /.env
+/docs/internal_dev.md
